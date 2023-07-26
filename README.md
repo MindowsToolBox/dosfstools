@@ -50,3 +50,12 @@ in the repository.
 
 First, autoconf, automake and gettext have to be installed.  Then you can run
 `./autogen.sh` to generate all the required files.
+
+
+···bash
+./configure --prefix=$PWD CC=aarch64-linux-gnu-gcc --host=arm-linux LDFLAGS=-static
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-  -j8
+make install
+cd sbin
+aarch64-linux-gnu-strip *
+
